@@ -18,10 +18,8 @@ migrate_working_dir/
 *.iws
 .idea/
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# VS Code (optional - keep if you want to ignore workspace settings)
+.vscode/
 
 # Flutter/Dart/Pub related
 **/doc/api/
@@ -31,7 +29,7 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
+build/
 
 # Symbolication related
 app.*.symbols
@@ -44,5 +42,18 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-#Secret Files
-Arduino/Secret.h
+# -----------------------
+# Secrets (cover all case variants & common names)
+# -----------------------
+# Arduino Door_Alert secret headers (exact path + variants)
+Arduino/Door_Alert/secret.h
+Arduino/Door_Alert/Secret.h
+Arduino/Door_Alert/SECRET.h
+
+# Also ignore any secret headers anywhere in the project
+**/secret.h
+**/Secret.h
+**/SECRET.h
+
+# Example secret file (safe to keep in repo)
+Arduino/Door_Alert/secret_example.h
